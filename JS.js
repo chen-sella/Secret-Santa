@@ -17,7 +17,7 @@ function pageRender(){
         input.setAttribute('class', inputs[i].class);
         input.setAttribute('id', inputs[i].id);
         input.setAttribute('placeholder', inputs[i].placeholder);
-        input.setAttribute('value', inputs[i].value);
+        // input.setAttribute('value', inputs[i].value);
         div.appendChild(input);
     }
     var btn = document.createElement('button');
@@ -28,23 +28,23 @@ function pageRender(){
 }
 
 function match(){
-    var names, elements, btn1;
+    var names, elements;
     names =[];
 
-    // loops over the inputs and create an array containind their values
-    // form = document.querySelector('form').addEventListener('submit', function(e){
-    //     e.preventDefault();
-        elements = document.querySelector('form').elements;
-        for (var i = 0 ; i<elements.length-1 ; i++) {
+    elements = document.querySelector('form').elements;
+    
+    for (var i = 0 ; i<elements.length-1 ; i++){
+        if (elements[i].value !== ""){
             names.push(elements[i].value);
         }
-
+    }
+    if (names.length !== 0){
         generateList(names);
         random(names);         
         generateButton();
         deleting ();
-    // });
-    }
+    }   
+}
         
 function generateList(names){
     var ul, inputlist, firstList;
@@ -54,7 +54,7 @@ function generateList(names){
     firstList.setAttribute('class', 'first-list');
 
     for (var i=0 ; i<names.length ; i++){
-        if (names[i] != "" ){
+        if (names[i] !== " "){
             inputlist = document.createElement('li');
             inputlist.setAttribute('class', 'li1')
             inputlist.setAttribute('id', 'li-'+i);
