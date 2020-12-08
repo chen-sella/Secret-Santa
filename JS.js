@@ -1,78 +1,109 @@
+var inputs =[{type: "input", class:"inputs", id:"name-0" ,placeholder:"First Participant" ,value:"Chen"},
+{type: "input", class:"inputs", id:"name-1", placeholder:"Second Participant", value:"Orr"},
+{type: "input", class:"inputs", id:"name-2", placeholder:"Third Participant", value:"Noam"},
+{type: "input", class:"inputs", id:"name-3", placeholder:"Forth Participant", value:"Gila"},
+{type: "input", class:"inputs", id:"name-4", placeholder:"Fifth Participant", value:"Dubi"}];
 
-function Match(){
-    var form, names, elements, inputlist, perlist, randomNumber, b, compare, again, array, c;
-    console.log("button pressed");
+
+function pageRender(){
+    var input, div, firstList;
+    div = document.querySelector('.container');
+    console.log(typeof(div));
+    firstList = document.createElement('div');
+    firstList.setAttribute('class', 'first-list');
+
+    for (var i=0; i<inputs.length; i++){
+        input = document.createElement(inputs[i].type);
+        input.setAttribute('class', inputs[i].class);
+        input.setAttribute('id', inputs[i].id);
+        input.setAttribute('placeholder', inputs[i].placeholder);
+        input.setAttribute('value', inputs[i].value);
+        div.appendChild(input);
+    }
+    var btn = document.createElement('button');
+    btn.setAttribute('class', 'btn1');
+    btn.textContent = 'Match';
+    btn.addEventListener('click', ()=> match());
+    div.appendChild(btn);
+}
+
+function match(){
+    var names, elements, btn1;
     names =[];
-    array = [];
 
     // loops over the inputs and create an array containind their values
-    form = document.querySelector('form').addEventListener("submit", function(e){
-        e.preventDefault();
+    // form = document.querySelector('form').addEventListener('submit', function(e){
+    //     e.preventDefault();
         elements = document.querySelector('form').elements;
         for (var i = 0 ; i<elements.length-1 ; i++) {
             names.push(elements[i].value);
         }
 
-        for (i=0 ; i<names.length ; i++){
-            array.push(names[i]);
-        }
-        
-        generateList(names , inputlist);
-        generateButton(again); 
-        deleting (b,c);
-        random(array);         
-    });
+        generateList(names);
+        random(names);         
+        generateButton();
+        deleting ();
+    // });
     }
         
-function generateList(names , inputlist){
+function generateList(names){
+    var ul, inputlist, firstList;
+    ul = document.createElement('ul');
+    ul.setAttribute('class', 'input-list');
+    firstList = document.createElement('div');
+    firstList.setAttribute('class', 'first-list');
+
     for (var i=0 ; i<names.length ; i++){
         if (names[i] != "" ){
             inputlist = document.createElement('li');
-            inputlist.setAttribute('class', 'il1')
+            inputlist.setAttribute('class', 'li1')
             inputlist.setAttribute('id', 'li-'+i);
-            inputlist.textContent = names[i] + ' >>>';
-            document.querySelector('.input-list').appendChild(inputlist);
+            inputlist.textContent = names[i];
+            ul.appendChild(inputlist);
         }
     }
+    firstList.appendChild(ul);
+    document.querySelector('.new-page').appendChild(firstList);
 }
 
-function generateButton(again){
-    again = document.createElement('button');
-    again.setAttribute('class', 'new-button');
-    again.setAttribute('id', 'btn2');
-    again.textContent = "Tray Again";
-    // again.onClick = refreshPage();
-    document.querySelector('.new-page-button').appendChild(again);
-    again.addEventListener('click', function(e) {
-        location.reload();
-    })
-}
-
-
-function deleting (b,c){
-    b = document.querySelector('form').elements;
-    for (var i = 0 ; i <= b.length +2; i++){
-        var remove = document.getElementById('name-'+i)
-        remove.parentNode.removeChild(remove);
-        } 
-    c = document.querySelector('#add');
-    c.parentNode.removeChild(c);
-}
-
-function random(array){
-    while (array.length >=1){
-        randomNumber = (Math.floor(Math.random()*(array.length)));
-        if (array[randomNumber] != ""){
+function random(names){
+    var ul, randomNumber, secondList;
+    var ul = document.createElement('ul');
+    ul.setAttribute('class', 'per-list');
+    secondList = document.createElement('div');
+    secondList.setAttribute('class', 'second-list');
+    while (names.length >=1){
+        var randomNumber = (Math.floor(Math.random()*(names.length)));
+        if (names[randomNumber] != ""){
             perlist = document.createElement('li');
-            perlist.setAttribute('class' , 'il2')
+            perlist.setAttribute('class' , 'li2')
             perlist.setAttribute('id', 'perli-'+randomNumber);
-            perlist.textContent = array[randomNumber];
-            document.querySelector('.per-list').appendChild(perlist);   
-            array.splice(randomNumber, 1);
-        }    
-     } 
+            perlist.textContent = names[randomNumber];
+            ul.appendChild(perlist);   
+            names.splice(randomNumber, 1);
+        }
+     }
+     secondList.appendChild(ul);
+     document.querySelector('.new-page').appendChild(secondList); 
 }
 
-function refreshPage(){
-    window.location.reload();
+function generateButton(){
+    var again = document.createElement('button');
+    again.setAttribute('class', 'btn2');
+    again.textContent = "Try Again";
+    document.querySelector('.new-page').appendChild(again);
+    again.addEventListener('click',()=> firstPage());
 }
+
+function deleting (){
+    var container = document.querySelector('.container');
+    container.innerHTML = "";
+}
+
+function firstPage(){
+    var page = document.querySelector('.new-page');
+    page.innerHTML = "";
+    pageRender();
+}
+
+pageRender();
