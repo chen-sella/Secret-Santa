@@ -81,5 +81,23 @@ button:hover{
     transition-duration: 0.4s;
 }
 
+@media only screen and (max-width: 425px){
+    body{
+        background-size: auto;
+    }
 
+    h1{
+        font-size: 135px;
+    }
 
+    .inputs{
+        padding: 4.5%;
+        font-size: 35px;
+    }
+
+    .btn1, .btn2{
+        padding: 3%;
+        width: 65%;
+        font-size: 35%;
+    }
+}

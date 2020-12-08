@@ -4,7 +4,6 @@ var inputs =[{type: "input", class:"inputs", id:"name-0" ,placeholder:"First Par
 {type: "input", class:"inputs", id:"name-3", placeholder:"Forth Participant", value:"Gila"},
 {type: "input", class:"inputs", id:"name-4", placeholder:"Fifth Participant", value:"Dubi"}];
 
-
 function pageRender(){
     var input, div, firstList;
     div = document.querySelector('.container');
