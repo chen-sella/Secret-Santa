@@ -1,5 +1,5 @@
 html{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    font-family: Garamond, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
 }
 
 h1 {
@@ -9,9 +9,9 @@ h1 {
 }
 
 body{
-    background-color: #B50A2A;
-    background-image: url('image2.webp');
-    /* background-repeat: no-repeat; */
+    background-image: url('annie-spratt-V705bwrTnQI-unsplash.jpg');
+    background-size: 2500px 1500px;
+    background-repeat: no-repeat;
 
 }
 
@@ -32,7 +32,7 @@ body{
     border: 1px solid  #DCDCDC;
     border-radius: 3px;
     font-size: 18px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Garamond, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .new-page{
@@ -40,16 +40,16 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 .first-list{
-    width: 30%;
+    width: 35%;
 }
 
 .second-list{
-    width: 30%;
+    width: 35%;
 }
 
 .li1, .li2{
@@ -64,45 +64,22 @@ body{
     border-radius: 3px;  
 }
 
-.btn1{
+.btn1, .btn2{
     border-radius: 5px;
     background-color: white;
     width: 50%;
     padding: 1%;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Garamond, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size:18px;
-    border-color:#B50A2A;
+    border-color:#16272F;
     font-weight: bold;
 }
 
 button:hover{
-    background-color: #B50A2A;
+    background-color: #16272F;
     color: white;
     transition-duration: 0.4s;
 }
 
-
-.btn1:hover {
-    background-color: #B50A2A;
-    color: white;
-    transition-duration: 0.4s;
-}
-
-.btn2{
-    border-radius: 5px;
-    background-color: white;
-    width: 50%;
-    padding: 1%;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size:18px;
-    border-color:#B50A2A;
-    font-weight: bold;
-}
-
-.btn2 :hover{
-    background-color: #B50A2A;
-    color: white;
-    transition-duration: 0.4s;
-}
 
 
