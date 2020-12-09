@@ -2,7 +2,7 @@ html{
     font-family: Garamond, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
 }
 
-h1 {
+.head {
     text-align: center;
     color: white;
     font-size: 50px;
@@ -12,7 +12,6 @@ body{
     background-image: url('annie-spratt-V705bwrTnQI-unsplash.jpg');
     background-size: 2500px 1500px;
     background-repeat: no-repeat;
-
 }
 
 .container{
@@ -26,7 +25,7 @@ body{
 
 .inputs{
     width: 80%;
-    justify-content: left;
+    justify-content: flex-start;
     padding: 1.5%;
     margin-bottom: 1%;
     border: 1px solid  #DCDCDC;
@@ -85,19 +84,23 @@ button:hover{
     body{
         background-size: auto;
     }
+    
+    .container{
+        width: 90%;
+    }
 
-    h1{
-        font-size: 135px;
+    .head{
+        font-size: 60px;
     }
 
     .inputs{
         padding: 4.5%;
-        font-size: 35px;
+        font-size: 20px;
     }
 
     .btn1, .btn2{
         padding: 3%;
         width: 65%;
-        font-size: 35%;
+        font-size: 20px;
     }
 }
